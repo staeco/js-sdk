@@ -8,7 +8,7 @@ An API client for [municipal.systems](https://municipal.systems).
 npm install stae --save
 ```
 
-## Examples
+## Basic Examples
 
 ```js
 import stae from 'stae'
@@ -39,7 +39,7 @@ const { results } = await api.place.dataType.datum.find({
   }
 })
 
-// getting a specific 911 callfor San Francisco
+// getting a specific 911 call for San Francisco
 const call = await api.place.dataType.datum.findById({
   placeId: 'sf-ca',
   dataTypeId: '911-call',
@@ -62,6 +62,99 @@ await writer.source.datum.create({
         40.752964
       ]
     }
+  }
+})
+```
+
+## Analytics Examples
+
+
+
+On an analytics endpoint, complex queries can be executed. This query gets the total count of calls, calls last week, and typical response time grouped by officer for Jersey City.
+
+```js
+const total = {
+  name: 'Total #',
+  type: 'number',
+  alias: 'total',
+  value: { function: 'count' }
+}
+const weekly = {
+  name: 'Last Week',
+  type: 'number',
+  alias: 'weekly',
+  value: { function: 'count' },
+  filters: {
+    data: {
+      receivedAt: {
+        $gte: { function: 'lastWeek' }
+      }
+    }
+  }
+}
+const typicalResponse = {
+  name: 'Typical Response',
+  type: 'number',
+  measurement: {
+    type: 'duration',
+    value: 'millisecond'
+  },
+  alias: 'response',
+  value: {
+    function: 'median',
+    arguments: [
+      {
+        function: 'interval',
+        arguments: [
+          { field: 'data.receivedAt' },
+          { field: 'data.arrivedAt' }
+        ]
+      }
+    ]
+  },
+  filters: {
+    data: {
+      receivedAt: {
+        $ne: null,
+        $lt: { field: 'data.arrivedAt' }
+      },
+      arrivedAt: { $ne: null }
+    }
+  }
+}
+
+const { results } = await api.place.dataType.analytics({
+  placeId: 'jers-nj',
+  dataTypeId: '911-call',
+  options: {
+    filters: {
+      data: {
+        officers: { $ne: null }
+      }
+    },
+    aggregations: [
+      {
+        alias: 'officer',
+        value: {
+          function: 'expand',
+          arguments: [
+            { field: 'data.officers' }
+          ]
+        }
+      },
+      typicalResponse,
+      weekly,
+      total
+    ],
+    orderings: [
+      {
+        value: { field: 'total' },
+        direction: 'desc'
+      }
+    ],
+    groupings: [
+      { field: 'officer' }
+    ]
   }
 })
 ```
