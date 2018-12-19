@@ -20,13 +20,13 @@ const api = stae.createClient({ key: 'your-account-key-from-municipal.systems' }
 const { results } = await api.place.find()
 
 // getting 911 calls for San Francisco
-const { results } = await api.place.datumType.datum.find({
+const { results } = await api.place.dataType.datum.find({
   placeId: 'sf-ca',
   dataTypeId: '911-call'
 })
 
 // getting traffic jams for NYC, with filtering and ordering
-const { results } = await api.place.datumType.datum.find({
+const { results } = await api.place.dataType.datum.find({
   placeId: 'nyc-ny',
   dataTypeId: 'traffic jam',
   options: {
@@ -40,7 +40,7 @@ const { results } = await api.place.datumType.datum.find({
 })
 
 // getting a specific 911 callfor San Francisco
-const call = await api.place.datumType.datum.findById({
+const call = await api.place.dataType.datum.findById({
   placeId: 'sf-ca',
   dataTypeId: '911-call',
   datumId: 'abcd-efg'
