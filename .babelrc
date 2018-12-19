@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    "add-module-exports",
+    [
+      "transform-object-rest-spread",
+      {
+        "useBuiltIns": true
+      }
+    ]
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current",
+          "browsers": ["> 1%", "last 2 versions", "not ie < 9"]
+        },
+        "loose": true,
+        "useBuiltIns": "usage"
+      }
+    ]
+  ]
+}
