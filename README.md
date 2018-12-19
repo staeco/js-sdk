@@ -68,7 +68,7 @@ await writer.source.datum.create({
 
 ## API List
 
-### Place
+### Place APIs
 
 - place.find({ options })
 - place.findById({ placeId })
