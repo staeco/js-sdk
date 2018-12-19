@@ -68,6 +68,7 @@ await writer.source.datum.create({
 
 ## Analytics Examples
 
+![screen shot 2018-12-19 at 5 28 10 am](https://user-images.githubusercontent.com/425716/50214744-0bfde880-034f-11e9-8860-26a150a71908.png)
 
 
 On an analytics endpoint, complex queries can be executed. This query gets the total count of calls, calls last week, and typical response time grouped by officer for Jersey City.
