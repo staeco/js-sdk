@@ -2,7 +2,7 @@
 /*eslint no-console: 0*/
 
 import should from 'should'
-import createClient from '../src'
+import { createClient } from '../src'
 
 describe('createClient', () => {
   it('should construct', async () => {

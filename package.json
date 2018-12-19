@@ -1,6 +1,6 @@
 {
   "name": "stae",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple and sugary client for using sutro APIs.",
   "main": "dist/index.js",
   "keywords": [
@@ -56,7 +56,6 @@
     "through2": "^3.0.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
     "sutro-client": "^1.0.6"
   }
 }

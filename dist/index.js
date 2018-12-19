@@ -1,8 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-
-require('@babel/polyfill');
+exports.createClient = undefined;
 
 var _meta = require('./meta.json');
 
@@ -16,7 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-exports.default = function () {
+var createClient = function createClient() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
   var key = _ref.key,
@@ -33,5 +32,4 @@ exports.default = function () {
   });
   return (0, _sutroClient2.default)(_meta2.default, opts);
 };
-
-module.exports = exports.default;
+exports.createClient = createClient;
