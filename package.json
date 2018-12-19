@@ -1,6 +1,6 @@
 {
   "name": "stae",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple and sugary client for using sutro APIs.",
   "main": "dist/index.js",
   "keywords": [
