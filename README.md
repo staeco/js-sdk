@@ -70,6 +70,9 @@ await writer.source.datum.create({
 
 ### Place
 
+- place.find({ options })
+- place.findById({ placeId })
+
 #### Data Types
 
 - place.dataType.find({ placeId, options })
