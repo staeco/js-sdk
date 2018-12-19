@@ -1,6 +1,6 @@
 # Stae JS SDK [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
-An API client for [municipal.systems](https://municipal.systems) for both Node.js and Browsers
+An API client for [municipal.systems](https://municipal.systems).
 
 ## Install
 
