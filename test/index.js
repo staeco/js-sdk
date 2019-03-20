@@ -16,7 +16,7 @@ describe('createClient', () => {
     const { results } = await api.place.find()
     should.exist(results)
   })
-  it('should get jers-nj 911 calls', async () => {
+  it.skip('should get jers-nj 911 calls', async () => {
     const api = createClient({ key: '' })
     const { results } = await api.place.dataType.datum.find({
       placeId: 'jers-nj',
