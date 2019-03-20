@@ -1,7 +1,7 @@
 {
   "name": "stae",
-  "version": "1.1.0",
-  "description": "A simple and sugary client for using sutro APIs.",
+  "version": "1.1.1",
+  "description": "An API client for municipal.systems",
   "main": "dist/index.js",
   "keywords": [
     "city",
