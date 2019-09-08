@@ -11,10 +11,10 @@ npm install stae --save
 ## Basic Examples
 
 ```js
-import stae from 'stae'
+import { createClient } from 'stae'
 
 // create a basic readable API client, authed as you
-const api = stae.createClient({ key: 'your-account-key-from-municipal.systems' })
+const api = createClient({ key: 'your-account-key-from-municipal.systems' })
 
 // get a list of places available
 const { results } = await api.place.find()
