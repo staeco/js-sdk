@@ -75,31 +75,21 @@ On an analytics endpoint, complex queries can be executed. This query gets the t
 
 ```js
 const total = {
-  name: 'Total #',
-  type: 'number',
   alias: 'total',
   value: { function: 'count' }
 }
 const weekly = {
-  name: 'Last Week',
-  type: 'number',
   alias: 'weekly',
   value: { function: 'count' },
   filters: {
     data: {
       receivedAt: {
-        $gte: { function: 'lastWeek' }
+        $gte: { function: 'last', arguments: [ 'P1W' ] }
       }
     }
   }
 }
 const typicalResponse = {
-  name: 'Typical Response',
-  type: 'number',
-  measurement: {
-    type: 'duration',
-    value: 'millisecond'
-  },
   alias: 'response',
   value: {
     function: 'median',
