@@ -27,6 +27,7 @@ var createClient = function createClient() {
   if (typeof root !== 'string') throw new Error('Invalid base option!');
   var opts = Object.assign({}, rest, {
     root: root,
+    rewriteLargeRequests: true,
     simple: true,
     options: Object.assign({ key: key }, rest.options)
   });

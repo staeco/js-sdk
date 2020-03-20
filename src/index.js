@@ -7,6 +7,7 @@ export const createClient = ({ key, root='https://municipal.systems/', ...rest }
   const opts = {
     ...rest,
     root,
+    rewriteLargeRequests: true,
     simple: true,
     options: { key, ...rest.options }
   }
